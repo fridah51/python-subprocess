@@ -6,4 +6,4 @@ services:
         ports:
             - 5001:80
         volumes:
-        - /var/www/:/app/scripts
+        - /home/hellosubprocess/:/app/scripts
