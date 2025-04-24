@@ -7,10 +7,10 @@ app = Flask(__name__)
 @app.route('/hello')
 def hello():
     event = "deploy_script.sh flask sasa 5002 fridah51"
-    script_path = 'scripts/hello.sh'
+    script_path = '/scripts/hello.sh'
 
     # 1. Make it executable
-    subprocess.run(['chmod', '+x', script_path], check=True)
+    # subprocess.run(['chmod', '+x', script_path], check=True)
 
     # 2. Run the script and pass the event via stdin
     process = subprocess.Popen(
