@@ -1,0 +1,7 @@
+services:
+    web:
+        build: .
+        container_name: hello-txt
+        restart: always
+        ports:
+            - 5001:80
