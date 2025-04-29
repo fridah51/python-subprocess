@@ -9,7 +9,7 @@ def deploy(subdomain):
     if not subdomain:
         return jsonify({"error": "Missing subdomain"}), 400
     
-    script_path = "/home/python-subprocess/scripts/hello.sh"
+    script_path = "/home/python-subprocess/scripts/deploy.sh"
 
     try:
         # 1. Make it executable
@@ -31,35 +31,8 @@ def deploy(subdomain):
 
         return jsonify({"output": result.stdout})
 
-
-        # OPTION 2
-        # 
-        # process = subprocess.Popen(
-        #     cmd,              # path to script (you already chmod’d it)
-        #     stdin=subprocess.PIPE,
-        #     stdout=subprocess.PIPE,
-        #     stderr=subprocess.PIPE,
-        #     text=True                          # for string I/O instead of bytes
-        # )
-
-        # # stdout, stderr = process.communicate()
-
-        # return {
-        #         "status": "success" if process.returncode == 0 else "error",
-        #         "stdout": stdout,
-        #     }
-
     except subprocess.CalledProcessError as e:
             return jsonify({"error": e.stderr}), 500
-
-
-
-
-
-
-
-
-
 
 if __name__ == '__main__':
     app.run(debug=True, port=5001)
