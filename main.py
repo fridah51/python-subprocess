@@ -9,7 +9,7 @@ def hello():
     # event = "deploy_script.sh flask sasa 5002 fridah51"
     event = "sasa"
 
-    script_path = '/home/python-subprocess/scripts/hello.sh'
+    script_path = '/hom/python-subprocess/scripts/hello.sh'
 
     # 1. Make it executable
     subprocess.run(['chmod', '+x', script_path], check=True)
