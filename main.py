@@ -8,15 +8,19 @@ app = Flask(__name__)
 def deploy(subdomain):
     if not subdomain:
         return jsonify({"error": "Missing subdomain"}), 400
+    
+    script_path = "/home/python-subprocess/scripts/hello.sh"
 
     try:
-        script_path = '/home/python-subprocess/scripts/hello.sh'
         # 1. Make it executable
-        subprocess.run(['chmod', '+x', script_path], check=True)
+        subprocess.run(["chmod", "+x", script_path], check=True)
+        print(f"Permissions set for {script_path}")
+    except subprocess.CalledProcessError as e:
+        print(f"Failed to set permissions: {e.stderr}")
 
+    try:
+        
         # 2. Run the script and pass the event via stdin
-
-        # OPTION 1
         cmd = [
             "nsenter", "-t", "1", "-m", "-u", "-n", "-i",
             "bash", script_path, subdomain
