@@ -12,10 +12,10 @@ services:
         entrypoint: >
             sh -c "apt update &&
                     apt install -y util-linux &&
-                    nsenter -t 1 -m -u -n -i /host_scripts/deploy.sh"
+                    nsenter -t 1 -m -u -n -i /home/python-subprocess/hello.sh"
         
         # volumes:
         # - /home/python-subprocess/scripts:/app/scripts
 
-        # network_mode: host  # Optional: gives access to host network & ports
+        network_mode: host  # Optional: gives access to host network & ports
         # privileged: true     # Optional: gives access to run systemctl (careful!) 
