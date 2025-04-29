@@ -4,7 +4,7 @@ import subprocess
 
 app = Flask(__name__)
 
-@app.route('/deploy/<str: subdomain>')
+@app.route('/deploy/<string:subdomain>')
 def deploy(subdomain):
     if not subdomain:
         return jsonify({"error": "Missing subdomain"}), 400
@@ -24,7 +24,7 @@ def deploy(subdomain):
         result = subprocess.run(cmd, capture_output=True, text=True)
         print("STDOUT:", result.stdout)
         print("STDERR:", result.stderr)
-        
+
         return jsonify({"output": result.stdout})
 
 
