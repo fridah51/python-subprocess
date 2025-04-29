@@ -6,7 +6,7 @@ services:
         ports:
             - 5001:80
         volumes:
-        - /home/hellosubprocess/scripts:/app/scripts
+        - /home/python-subprocess/scripts:/app/scripts
 
         # network_mode: host  # Optional: gives access to host network & ports
         # privileged: true     # Optional: gives access to run systemctl (careful!) 
