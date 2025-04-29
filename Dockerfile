@@ -10,3 +10,5 @@ RUN pip install -r /tmp/requirements.txt
 
 # copy over our app code
 COPY ./ /app
+
+EXPOSE 80

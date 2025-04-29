@@ -1,6 +1,8 @@
 #!/bin/bash
 
-read subdomain
+# read subdomain
+subdomain="$1"
+
 
 echo "Hello, World!" > /home/scripts/hello.txt
 echo "Deploy App Event detected: $subdomain"
