@@ -9,7 +9,7 @@ def hello():
     # event = "deploy_script.sh flask sasa 5002 fridah51"
     event = "sasa"
 
-    script_path = '/app/scripts/hello.sh'
+    script_path = '/home/python-subprocess/scripts/hello.sh'
 
     # 1. Make it executable
     subprocess.run(['chmod', '+x', script_path], check=True)
@@ -20,7 +20,6 @@ def hello():
     # result = subprocess.run(['bash', script_path], capture_output=True, text=True)
     # print("STDOUT:", result.stdout)
     # print("STDERR:", result.stderr)
-
     # return "hello you!"
 
 
@@ -34,14 +33,15 @@ def hello():
     )
 
     stdout, stderr = process.communicate(input=event)
-    
-    # stdout, stderr = process.communicate()
 
     return {
             "status": "success" if process.returncode == 0 else "error",
             "stdout": stdout,
             "stderr": stderr
         }
+
+
+
 
 
 if __name__ == '__main__':
