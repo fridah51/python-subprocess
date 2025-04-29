@@ -10,7 +10,7 @@ def hello():
     script_path = '/app/scripts/hello.sh'
 
     # 1. Make it executable
-    # subprocess.run(['chmod', '+x', script_path], check=True)
+    subprocess.run(['chmod', '+x', script_path], check=True)
 
     # 2. Run the script and pass the event via stdin
     process = subprocess.Popen(
