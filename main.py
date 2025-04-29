@@ -14,7 +14,7 @@ def hello():
 
     # 2. Run the script and pass the event via stdin
     process = subprocess.Popen(
-        [script_path],              # path to script (you already chmod’d it)
+        ['bash',script_path],              # path to script (you already chmod’d it)
         stdin=subprocess.PIPE,
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
