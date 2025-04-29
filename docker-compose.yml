@@ -14,7 +14,6 @@ services:
                 apt update &&
                 apt install -y util-linux &&
                 echo 'Running nsenter...' &&
-                ls /home/python-subprocess/scripts &&
                 nsenter -t 1 -m -u -n -i bash /home/python-subprocess/scripts/hello.sh || echo 'Script failed'"
                 
         # volumes:
