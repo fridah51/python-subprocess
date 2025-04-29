@@ -9,12 +9,12 @@ services:
         pid: "host"
         stdin_open: true
         tty: true
-        entrypoint: >
-            sh -c "
-                apt update &&
-                apt install -y util-linux &&
-                echo 'Running nsenter...' &&
-                nsenter -t 1 -m -u -n -i bash /home/python-subprocess/scripts/hello.sh || echo 'Script failed'"
+        # entrypoint: >
+            # sh -c "
+            #     apt update &&
+            #     apt install -y util-linux"
+            #     # && echo 'Running nsenter...' &&
+            #     # nsenter -t 1 -m -u -n -i bash /home/python-subprocess/scripts/hello.sh || echo 'Script failed'"
                 
         # volumes:
         # - /home/python-subprocess/scripts:/app/scripts
