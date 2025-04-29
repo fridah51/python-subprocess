@@ -13,19 +13,24 @@ def hello():
     subprocess.run(['chmod', '+x', script_path], check=True)
 
     # 2. Run the script and pass the event via stdin
-    process = subprocess.Popen(
-        ['bash',script_path],              # path to script (you already chmod’d it)
-        stdin=subprocess.PIPE,
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
-        text=True                   # for string I/O instead of bytes
-    )
+    result = subprocess.run(['bash', script_path], capture_output=True, text=True)
+    print("STDOUT:", result.stdout)
+    print("STDERR:", result.stderr)
 
-    stdout, stderr = process.communicate(input=event)
 
-    print("STDOUT:", stdout)
-    print("STDERR:", stderr)
-    print("Exit code:", process.returncode)
+    # process = subprocess.Popen(
+    #     ['bash',script_path],              # path to script (you already chmod’d it)
+    #     stdin=subprocess.PIPE,
+    #     stdout=subprocess.PIPE,
+    #     stderr=subprocess.PIPE,
+    #     text=True                   # for string I/O instead of bytes
+    # )
+
+    # stdout, stderr = process.communicate()
+
+    # print("STDOUT:", stdout)
+    # print("STDERR:", stderr)
+    # print("Exit code:", process.returncode)
 
     return "hello you!"
 
