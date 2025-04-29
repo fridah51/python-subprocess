@@ -10,8 +10,10 @@ services:
         stdin_open: true
         tty: true
         entrypoint: >
-            sh -c "apk add --no-cache util-linux && 
+            sh -c "apt update &&
+                    apt install -y util-linux &&
                     nsenter -t 1 -m -u -n -i /host_scripts/deploy.sh"
+        
         # volumes:
         # - /home/python-subprocess/scripts:/app/scripts
 
